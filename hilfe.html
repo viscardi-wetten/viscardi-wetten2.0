@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viscardi-Wetten</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+
+  <style>
+
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: rgb(29, 28, 28);
+    }
+
+    .header {
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      background-color:  #330329;
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+        .header img {
+            align-items: center;            
+            text-align: center;
+            max-width: 300px; /* Reduziere die maximale Breite des Logos */
+            height: 100%;
+            margin-bottom: 5px; /* Reduziere den unteren Abstand des Logos */
+            margin-left: 50%;
+        }
+
+
+        .header button {
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      font-size: smaller;
+      width: 50%;
+    }
+      
+.headerbutton {
+  border: 2px solid white; /* 1px dünner schwarzer Rahmen */
+    padding: 16.5px; /* Innenabstand für den Text */
+    border-radius: 8px;
+      background-color: rgb(29, 28, 28);
+      color: white;
+      padding: 8px 14px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      font-size: 15.2px;
+      margin: 20px auto;
+      margin-top: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border-radius: 12px;
+      width: 147px;
+}
+    .header button:hover {
+        background-color:  white;
+      border: none;
+      color: #330329;
+      
+     
+    }
+
+     .loginbutton {
+      border: 2px solid white; /* 1px dünner schwarzer Rahmen */
+    padding: 16.5px; /* Innenabstand für den Text */
+    border-radius: 8px;
+      background-color: #5b0448;
+      color: white;
+      padding: 6px 17px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      font-size: 15.2px;
+      margin: 20px auto;
+      margin-top: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border-radius: 12px;
+      width: 170px;
+     }
+
+    .account-icon {
+            margin-right: 10px;
+            font-size: 15.4px;
+           fill: white;
+        }
+  
+
+
+    .section h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .section p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .wettenbutton {
+      border: 2px solid white; /* 1px dünner schwarzer Rahmen */
+    padding: 16.5px; /* Innenabstand für den Text */
+    border-radius: 8px;
+      background-color: rgb(29, 28, 28);
+      color: white;
+      padding: 8px 18px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      font-size: 15.2px;
+      margin: 20px auto;
+      margin-top: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border-radius: 12px;
+      width: 170px;
+      
+    }
+
+    .wettenbutton:hover {
+      background-color: white;
+      color:  black;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #330329;
+      color: white;
+    }
+
+    .footertext {
+      font-size: 17.85px;
+    }
+
+    .impressum {
+      text-decoration: underline;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+
+    .mail-button {
+      border: 2px solid white; /* 1px dünner schwarzer Rahmen */
+    padding: 15px; /* Innenabstand für den Text */
+    border-radius: 8px;
+      background-color: rgb(29, 28, 28);
+      color: white;
+      padding: 7px 12px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      font-size: 15.2px;
+      margin: 20px auto;
+      margin-top: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border-radius: 12px;
+      width: 170px;
+    }
+
+    .mail-button:hover {
+      background-color: white;
+      color: black;
+    }
+    .section {
+        margin-bottom: 100px;
+        color: white;
+        margin: 55px;
+        margin-bottom: 76px;
+
+    }
+
+    .sondersection{
+      height: 40px;
+      width: 100%;
+    }
+
+    #popup {
+        display: none;
+        position: fixed;
+        bottom: 0; /* Startposition unten aus dem Bildschirm */
+        left: 50%;
+        transform: translate(-50%, 100%); /* Startposition unten aus dem Bildschirm */
+        padding: 20px;
+        background-color: black;
+        border: 1.3px solid #242323; /* 1px dünner schwarzer Rahmen */
+        border-radius: 26px;
+        text-align: center;
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        width: 100%;
+        transition: transform 1.8s ease;
+        margin-top: 40px;
+        width: 100vw;
+        height: 100vh;
+}
+    
+
+        .popupbutton{
+          border: 2px solid white; /* 1px dünner schwarzer Rahmen */
+    padding: 16.5px; /* Innenabstand für den Text */
+    border-radius: 8px;
+      background-color: rgb(29, 28, 28);
+      color: white;
+      padding: 6px 18px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      font-size: 15.2px;
+      margin: 20px auto;
+      margin-top: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border-radius: 12px;
+      width: 170px;
+      margin-bottom: 40px;
+        }
+      
+
+.popupbutton:hover{
+    background-color: white;
+    color: #330329;
+}
+
+     .popupbutton2 {
+      border: 2px solid white; /* 1px dünner schwarzer Rahmen */
+    padding: 16.5px; /* Innenabstand für den Text */
+    border-radius: 8px;
+      background-color: rgb(29, 28, 28);
+      color: white;
+      padding: 6px 18px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      font-size: 15px;
+      margin: 20px auto;
+      margin-top: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border-radius: 12px;
+      width: 170px;
+     }
+ 
+     .popupimg {
+      width: 100%;
+      max-width: 250px; /* Reduziere die maximale Breite des Logos */
+      height: auto;
+     }
+
+.popuptext {
+    font-size: 15px;
+    margin: 20px;
+     }
+
+  .allpopup {
+    border: 1.89px solid #330229;
+    border-radius: 26px;
+    margin: 14px;
+  }
+
+h5 {
+font-size: larger;
+}
+
+
+
+ul {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background: rgb(29, 28, 28);
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+  }
+
+  ul li {
+    position: relative;
+    display: block;
+    color: #e0dcdc;
+    font-size: 30px;
+    height: 60px;
+    width: 60px;
+    background: rgb(29, 28, 28);
+    line-height: 60px;
+    border-radius: 50%;
+    margin: 0 15px;
+    cursor: pointer;
+    transition: .5s;
+    text-align: center;
+  }
+
+  ul li:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: inherit;
+    width: inherit;
+    border-radius: 50%;
+    transform: scale(.9);
+    z-index: -1;
+    transition: .5s;
+  }
+
+ul li:nth-child(1):before{
+  background: #4267B2;
+}
+ul li:nth-child(2):before{
+  background: #1DA1F2;
+}
+ul li:nth-child(3):before{
+  background: #E1306C;
+}
+ul li:nth-child(4):before{
+  background: #2867B2;
+}
+ul li:nth-child(5):before{
+  background: #ff0000;
+}
+ul li:hover:before{
+  filter: blur(3px);
+  transform: scale(1.2);
+  /* box-shadow: 0 0 15px #d35400; */
+}
+ul li:nth-child(1):hover:before{
+  box-shadow: 0 0 15px #4267B2;
+}
+ul li:nth-child(2):hover:before{
+  box-shadow: 0 0 15px #1DA1F2;
+}
+ul li:nth-child(3):hover:before{
+  box-shadow: 0 0 15px #E1306C;
+}
+ul li:nth-child(4):hover:before{
+  box-shadow: 0 0 15px #2867B2;
+}
+ul li:nth-child(5):hover:before{
+  box-shadow: 0 0 15px #ff0000;
+}
+ul li:nth-child(1):hover{
+  color: #456cba;
+  box-shadow: 0 0 15px #4267B2;
+  text-shadow: 0 0 15px #4267B2;
+}
+ul li:nth-child(2):hover{
+  color: #26a4f2;
+  box-shadow: 0 0 15px #1DA1F2;
+  text-shadow: 0 0 15px #1DA1F2;
+}
+ul li:nth-child(3):hover{
+  color: #e23670;
+  box-shadow: 0 0 15px #E1306C;
+  text-shadow: 0 0 15px #E1306C;
+}
+ul li:nth-child(4):hover{
+  color: #2a6cbb;
+  box-shadow: 0 0 15px #2867B2;
+  text-shadow: 0 0 15px #2867B2;
+}
+ul li:nth-child(5):hover{
+  color: #ff1a1a;
+  box-shadow: 0 0 15px #ff0000;
+  text-shadow: 0 0 15px #ff0000;
+}
+html, body {
+  scroll-behavior: smooth;
+}
+
+.h10 {
+    font-size: large;
+    color: white;
+    text-align: center;
+}
+
+  @media (min-width: 768px) {
+    .header {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+  }
+
+  .header img { 
+    max-width: 300px; /* Maximale Breite für das Bild festlegen */
+    width: 100%;
+    text-align: center;
+    height: auto; /* Bildhöhe automatisch anpassen */
+    margin-bottom: 10px; /* Nach unten Platz für die Buttons */
+    margin-top: 7.8px;
+    margin-left: 50%;
+  }
+
+  .headerbutton {
+    flex-direction: column;
+    text-align: center;
+    font-size: 14px;
+    margin: 5px;
+  }
+           
+
+      .section{  
+      width: 100%; /* Setze die Breite auf 100% in der mobilen Ansicht */
+        max-width: none; /* Entferne die maximale Breitenbeschränkung */
+        margin: 20px 0; /* Passe den Außenabstand an, falls gewünscht */
+        margin-bottom: 50px;
+        margin-top: 50px;
+          }
+        
+    #h1{
+        text-align: center;
+        font-size: larger;
+    }
+      
+      .popupimg{
+        max-width: 300px;
+      }
+
+      ul {
+    text-align: center;
+    margin-top: 20px; /* Passe den oberen Abstand nach Bedarf an */
+  }
+
+  ul li {
+    margin: 0 10px; /* Gleichmäßiger Abstand zu den Seitenrändern */
+    font-size: smaller;
+  }
+     }
+
+    </style>
+</head>
+<body  class="page-transition page-visible" >
+
+
+    <div class="container">
+        <div class="header">
+        <img src="9.png" alt="Logo-viscardi-wetten">
+        <h1>F a Q</h1>
+
+            <button class="headerbutton"  id="pageSwitchBtn" onclick="redirectToNewPage('idee.html')" >Zurück </button>
+            <button  class="headerbutton"   id="pageSwitchBtn"  onclick="location.href=('index.html');">Startseite</button>
+        </div>
+    
+        <div class="section">
+            <h2>Wie kann ich meine Wette stonieren?</h2>
+            <p>Sollten sie nach dem abschließen einer Wette, diese anschließend wieder stonieren wollen, teilen sie uns dies bitte per Email mit. Die Kontakt-Email,
+                ist im Anhang Kontakt auf der Startseite zu finden. Bitte beachten sie das das Stonieren einer Wette nur innerhalb der nächsten 90 Minuten nach abschließen der Wette möglich ist. Andernfalls ist die Stonierung nicht mehr möglich. <br> Bitte beachten sie das die gesamte Komunikation über Email läuft, was es äußerst wichtig macht, ihre richtige Email anzugeben und dessen Posteingang regelmäßig zu kontrollieren! 
+            </p>
+        </div>
+  
+        <div class="section" id="Ablauf">
+            <h2>Was passiert wenn ich eine Wette platziert habe?</h2>
+            <p>Haben sie eine Wette abgeschlossen, erhalten sie zunächst eine Email, welche das abschliessenbestätigt. Sollten sie diese innerhalb der nächsten Stunden nach abschließen der Wette nicht erhalten, wenden sie sich bitte an den Kundenservice, wessen Kontakt ihnen auf der Startseite unter dem anhang Kontakt , zu Verfügung steht. So geht es weiter: Die genauen Anweisungen erhalten sie nach dem Abschließen einer Wette per Email. Nach Ablaufen des Ereignises erhalten sie je nach Einsatz einen Wert, welcher durch die Multiplikation ihres Einsatzes und einer (unter dem Ereigniss) verzeichneten Quote ermittelt wird. Sie werden nach Ablaufen des ereignisses benachrichtigt ob sie gweonnen haben und wie es nun weiter geht. <br> Bitte beachten sie das die gesamte Komunikation über Email läuft, was es äußerst wichtig macht, ihre richtige Email anzugeben und dessen Posteingang regelmäßig zu kontrollieren!  </p>
+        </div>
+
+        <div class="section" id="rechtliches">
+            <h2>Welche Zahlungsmöglichkeiten habe ich?</h2>
+            <p> Ihnen stehen folgende 2 Zahlungsmöglichkeiten zu Verfügung, welche sie beim platzieren der Wette angeben müssen. Barzahlung sowie Paypal-Zahlung. Nach Ablaufen des Ereignisses gegen ihre Wette, erhalten sie eine Mail, mit genauen anweisungen wie und biswann die Zahlung, ermittelt durch ihre angaben, erfolgen muss. <br> Bitte beachten sie das die gesamte Komunikation über Email läuft, was es äußerst wichtig macht, ihre richtige Email anzugeben und dessen Posteingang regelmäßig zu kontrollieren! </p>
+        </div>
+        
+        <div class="section" id="wetten">
+            <h2>Was genau passiert wenn ich gewonnen habe?</h2>
+            <p>Wenn sie gewonnen haben, werden ihnen über Mail zu aller erst, herzliche Glückwünsche übermittelt. Anschließend wird ihnen Berichtet wie es nun weiter geht. Es wid bekannt gegeben welchen Betrag sie gewonnen haben, wie und wann ihnen dieser ausgezahlt wird und was von uns getan werden wird.
+                <br>  Bitte beachten sie das die gesamte Komunikation über Email läuft, was es äußerst wichtig macht, ihre richtige Email anzugeben und dessen Posteingang regelmäßig zu kontrollieren!  </p>
+            </p>
+        </div>
+
+        <div class="section" id="kontakt">
+            <h2>Kontakt</h2>
+            <p>Liegt ein Anliegen oder Ereignisvorschlag vor, steht ihnen hier der Kontakt zu verfügung:</p>
+            <a href="mailto:viscardiwetten@gmail.com" class="mail-button">Kontaktieren</a>
+        </div>
+
+    
+        <ul>
+
+            <li><i class="fab fa-instagram"></i></li>
+
+         </ul>
+
+        <div class="footer">
+            <p class="footertext">&copy; <strong> 2024 Viscardi-Wetten. </strong> (acm muel) Alle Rechte vorbehalten. </p>
+            <div class="impressum">
+               <strong>Impressum</strong>
+               <strong>Kontakt</strong>
+               <strong>AGB</strong>
+               
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function redirectToNewPage(destination) {
+      // Navigiere zu der neuen Seite
+      window.location.href = destination;
+    }
+  </script>
+    
+    <style>
+        .page-transition {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    
+    .page-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    </style>
+    <script>
+    document.getElementById('pageSwitchBtn').addEventListener('click', function() {
+        document.body.classList.toggle('page-transition');
+        document.body.classList.toggle('page-visible');
+      });
+      </script>
+    
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

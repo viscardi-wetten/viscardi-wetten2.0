@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wetten</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <style>
+
+
+
+
+
+
+body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: rgb(29, 28, 28);
+    }
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      background-color:  #330329;
+      color: white;
+    }
+
+    .header img {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+
+    .section {
+      margin: 20px;
+    }
+
+    .sectionmain h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .sectionmain p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .zurückbutton {
+      border: 2px solid white; /* 1px dünner schwarzer Rahmen */
+    padding: 15px; /* Innenabstand für den Text */
+    border-radius: 8px;
+      background-color: rgb(29, 28, 28);
+      color: white;
+      padding: 8px 18px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      font-size: 13.6px;
+      margin: 15px auto;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border-radius: 12px;
+      width: 170px;
+    }
+
+    .zurückbutton:hover {
+        background-color:  white;
+      border: none;
+      color: #330329;
+     
+    }
+
+    .loginbutton {
+      border: 2px solid white; /* 1px dünner schwarzer Rahmen */
+    padding: 16.5px; /* Innenabstand für den Text */
+    border-radius: 8px;
+      background-color: rgb(29, 28, 28);
+      color: white;
+      padding: 8px 18px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      font-size: 13.6px;
+      margin: 20px auto;
+      margin-top: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border-radius: 12px;
+      width: 170px;
+        }
+
+      .loginbutton:hover {
+        background-color: white;
+            color: #330229;
+      }
+
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #330329;
+      color: white;
+      margin-bottom: 0px;
+      margin-top: 30px;
+    }
+
+    .footertext {
+      font-size: 17.85px;
+    }
+
+    .impressum {
+      text-decoration: underline;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+
+    .sectionmain {
+        margin-bottom: 80px;
+        color: rgb(240, 235, 235);
+    }
+
+    .ereignis {
+      margin: 18.7px;
+    border: 2px solid  white; /* 1px dünner schwarzer Rahmen */
+    padding: 10px; /* Innenabstand für den Text */
+    border-radius: 19px;
+    }
+
+    .wette2 {
+        align-items: center;
+        display: inline-block;
+
+    }
+
+    .checkoutbutton {
+      border: 2px solid white; /* 1px dünner schwarzer Rahmen */
+    padding: 16.5px; /* Innenabstand für den Text */
+    border-radius: 8px;
+      background-color: rgb(29, 28, 28);
+      color: white;
+      padding: 8px 18px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      font-size: 14.8px;
+      margin: 20px auto;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border-radius: 12px;
+      width: 170px;
+    }
+
+    .checkoutbutton:hover {
+        background-color: white;
+        color: #330329;
+    }
+
+    .quote {
+         text-align:  right;
+    }
+
+   
+
+
+    @media (min-width: 768px) {
+      .header {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      
+      .header img {
+        max-width: 300px;
+      }
+
+      #h1{
+        border: 1.8px solid white;
+        border-radius: 12px;
+        padding: 16px;
+      } 
+
+      #popup {
+        width: 100%;
+        height: 100%;
+      }
+
+      .wette2 {
+        margin-bottom: 50px;
+      }
+
+      .sectionmain {
+        width: 100%;
+       
+      }  
+    .ereignis{
+      width: 100%; /* Setze die Breite auf 100% in der mobilen Ansicht */
+      
+    }
+    
+    }
+
+    </style>
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="header">
+            <h1>Langzeit-Wetten</h1>
+            <button class="zurückbutton" onclick="redirectToNewPage('newPage.html')">Zurück</button>
+            <button class="zurückbutton" onclick="redirectToNewPage('login.html')" >Login <i class='fas fa-user-alt'></i></button>
+            <button class="zurückbutton" onclick="redirectToNewPage('index.html')">Startseite</button>
+            <button class="zurückbutton"  onclick="redirectToNewPage('idee.html')">Wett-Ideen</button>
+        </div>
+
+       
+
+
+        <div class="sectionmain" id="wetten">
+
+            <h2>Langzeit-Wetten</h2>
+            <p>  </p>
+            <div class="wette2">
+            <p class="ereignis">Julius Kurp beschädigt bis zum 26.03.24 eine Utensilie der Bühnentechnik AG (Quote 2,4x) <p> <strong> (Haftpflichtversicherungs Nachweis Dokument ist zu erbringen) </strong> </p> </p> <button class="checkoutbutton" onclick="redirectToNewPage('checkout.html')">Wette platzieren</button>
+            </div>
+            <p>  </p>
+            <div class="wette2">
+            <p class="ereignis">Nicolai Büchert verbingt einen abulant oder nichtabulanten Krankenhausaufenthalt auf grund von oralem, intravenösen sowie nasalem Konsum von Konsummitteln, bis zum 14.04.24  (Quote 2,01x) <p> <strong> (Konsumenmittel welche unter das 1a Lebensmittel- und Futtermittelgesetzbuch (§ 40 Abs. 1a LFGB) fallen, als Ursache, sind nicht gültig) </strong> </p> <p> Suggested by Nicolai Büchert</p> </p> <button class="checkoutbutton" onclick="redirectToNewPage('checkout2.html')">Wette  platzieren</button>  
+            </div>
+            <p>  </p>
+            <div class="wette2">
+            <p class="ereignis">Vincent Varga besteht das Schuljahr 23/24 in seiner aktuellen Klasse nicht (Quote 1,9x) <p> <strong> (Ereignismanipulation wird ohne Verdacht ermittelt) </strong> <p>Suggested by Vincent Varga</p> </p> </p><button class="checkoutbutton" onclick="redirectToNewPage('checkout3.html')">Wette platzieren</button>   
+            </div>
+            <p>  </p>
+            <div class="wette2">
+            <p class="ereignis"> Ivo oder Stefan erreichen nicht die "Meisten Fehltage Quote" bis zum Jahresende (Quote 1,57x) <p> <strong>(aktive Fehltage können aufgrund von Ereignismanipulation zum Wettenabbruch führen)</strong></p> </p><button class="checkoutbutton" onclick="redirectToNewPage('checkout4.html')">Wette platzieren</button>   
+            </div>
+            <p>  </p>
+            <div class="wette2">
+            <p class="ereignis"> Nicolai Büchert erreicht einen 10. Klass Zeugnisschnitt von 2,9 bis (Quote 1,89x)</p><button class="checkoutbutton" onclick="redirectToNewPage('checkout5.html')">Wette platzieren</button>  
+            </div>
+            <p>  </p>
+            <div class="wette2">
+            <p class="ereignis">Der nächste Feuerarlam finded bis zum 18.05.24 statt  (Quote 2,2x) <p> <strong>(Bewusstes Ausslösen des Feueralarms wird zum Wettenabbruch führen und an OStD. Wagner weitergegeben.)</strong></p> </p><button class="checkoutbutton" onclick="redirectToNewPage('checkout6.html')">Wette platzieren</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p class="footertext">&copy; <strong> 2024 Viscardi-Wetten. </strong> (acm muel) Alle Rechte vorbehalten. </p>
+            <div class="impressum">
+               <strong>Impressum</strong>
+               <strong>Kontakt</strong>
+               <strong>AGB</strong>
+               
+            </div>
+        </div>
+    </div>
+   
+    <script>
+    
+    function redirectToNewPage(destination) {
+  // Navigiere zu der neuen Seite
+  window.location.href = destination;
+}
+
+
+    </script>
+    
+
+</body>
+</html>
