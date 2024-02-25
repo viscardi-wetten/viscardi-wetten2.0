@@ -32,9 +32,10 @@
         .header img {
             align-items: center;            
             text-align: center;
-            max-width: 100%; /* Reduziere die maximale Breite des Logos */
-            height: auto;
-            margin-left: 80px;
+            max-width: 300px; /* Reduziere die maximale Breite des Logos */
+            height: 100%;
+            margin-bottom: 5px; /* Reduziere den unteren Abstand des Logos */
+            margin-left: 50px;
         }
 
 
@@ -99,9 +100,7 @@
            fill: white;
         }
   
-    h1 {
-        margin-left: 250px;
-    }
+
 
     .section h2 {
       font-size: 24px;
@@ -241,6 +240,9 @@
     color: #330329;
 }
 
+h1 {
+    margin-left: 250px;
+}
      .popupbutton2 {
       border: 2px solid white; /* 1px dünner schwarzer Rahmen */
     padding: 16.5px; /* Innenabstand für den Text */
@@ -401,17 +403,20 @@ html, body {
   }
 
   .header img { 
-    max-width: 100%; /* Maximale Breite für das Bild festlegen */
+    max-width: 300px; /* Maximale Breite für das Bild festlegen */
+    width: 100%;
     text-align: center;
     height: auto; /* Bildhöhe automatisch anpassen */
-    padding: 11px 0;
+ /* Nach unten Platz für die Buttons */
+    margin-top: 7.8px;
+    padding: 12px 0;
   }
 
   .headerbutton {
     flex-direction: column;
     text-align: center;
     font-size: 14px;
-    margin: 5px;
+    margin-top: 3px;
   }
            
 
@@ -422,10 +427,15 @@ html, body {
         margin-bottom: 50px;
         margin-top: 50px;
           }
+        
+    h1{
+        text-align: center;
+        font-size: 40px;
+        margin-right: 38.5%;
+    }
       
       .popupimg{
-        max-width: 100%;
-        margin-left: 50%;
+        max-width: 300px;
       }
 
       ul {
@@ -441,17 +451,18 @@ html, body {
 
     </style>
 </head>
-<body>
+<body  class="page-transition page-visible" >
 
 
     <div class="container">
         <div class="header">
         <img src="9.png" alt="Logo-viscardi-wetten">
-        
 
-            <button class="headerbutton" onclick="redirectToNewPage('idee2.html')" >Zurück </button>
-            <button  class="headerbutton"  onclick="location.href=('index.html');">Startseite</button>
+
+            <button class="headerbutton"  id="pageSwitchBtn" onclick="redirectToNewPage('idee2.html')" >Zurück </button>
+            <button  class="headerbutton"   id="pageSwitchBtn"  onclick="location.href=('index.html');">Startseite</button>
         </div>
+    
         <div class="section">
             <h2>Wie kann ich meine Wette stonieren?</h2>
             <p>Sollten sie nach dem abschließen einer Wette, diese anschließend wieder stonieren wollen, teilen sie uns dies bitte per Email mit. Die Kontakt-Email,
@@ -507,7 +518,24 @@ html, body {
     }
   </script>
     
- 
+    <style>
+        .page-transition {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    
+    .page-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    </style>
+    <script>
+    document.getElementById('pageSwitchBtn').addEventListener('click', function() {
+        document.body.classList.toggle('page-transition');
+        document.body.classList.toggle('page-visible');
+      });
+      </script>
     
 
 </body>
